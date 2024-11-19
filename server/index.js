@@ -5,6 +5,8 @@ const db = require("./app/database");
 const materialRouter = require("./routes/materialRouter");
 const materialRequestRouter = require("./routes/materialRequestRouter");
 const mahasiswaRouter = require("./routes/mahasiswaRouter");
+const produkRouter = require("./routes/produkRouter");
+const berkasRouter = require("./routes/berkasRouter");
 
 const app = express();
 const PORT = 5000;
@@ -21,6 +23,12 @@ db.connect((err) => {
   console.log("connected to database");
 });
 
+// multer setup
+
+app.use("/uploads", express.static("uploads"));
+
+app.use("/produk", produkRouter);
+app.use("/berkas", berkasRouter);
 app.use("/mahasiswa", mahasiswaRouter);
 app.use("/material", materialRouter);
 app.use("/material-request", materialRequestRouter);

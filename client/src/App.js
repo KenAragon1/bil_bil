@@ -29,6 +29,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Mahasiswa from "./Mahasiswa";
 import MaterialRequest from "./MaterialRequest";
 import Material from "./Material";
+import Produk from "./Produk";
+import Berkas from "./Berkas";
 function App() {
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -131,6 +133,18 @@ function App() {
               </ListItemIcon>
               <ListItemText primary="Material Request" />
             </ListItem>
+            <ListItem button component={Link} to="/produk">
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Produk" />
+            </ListItem>
+            <ListItem button component={Link} to="/berkas">
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Berkas" />
+            </ListItem>
           </List>
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
@@ -148,6 +162,8 @@ function App() {
             <Route path="/mahasiswa" element={<Mahasiswa />} />
             <Route path="/material" element={<Material />} />
             <Route path="/material-request" element={<MaterialRequest />} />
+            <Route path="/produk" element={<Produk />} />
+            <Route path="/berkas" element={<Berkas />} />
           </Routes>
         </Box>
       </Box>
